@@ -22,12 +22,12 @@ bash setup_script.sh
 Follow the on-screen prompts:
 1. Username and Password Setup: You will be asked to create a new user with password.
 2. Installation: The script will
-	1. Update and upgrade Termux packages
-	2. Install X11-repo, XFCE, Proot Distro, and necessary dependencies
-	3. Install Ubuntu via Proot Distro
-	4. Set up a new Ubuntu user and grant it sudo privileges
-	5. Install code-server for browser-based development
-	6. Install PostgreSQL (optional, if you need it for your development)
+	- Update and upgrade Termux packages
+	- Install X11-repo, XFCE, Proot Distro, and necessary dependencies
+	- Install Ubuntu via Proot Distro
+	- Set up a new Ubuntu user and grant it sudo privileges
+	- Install code-server for browser-based development
+	- Install PostgreSQL (optional, if you need it for your development)
 ### 3. Running the XFCE Desktop Environment
 Once the setup is complete, you can start the XFCE desktop environment by running the `start_script.sh`:
 ```bash
