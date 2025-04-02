@@ -56,11 +56,13 @@ code-server
 	- Enter the password you set in step 4
 ### Troubleshooting
 #### Common Problems on Huawei Devices
-1. Termux Not Full Screen on Huawei Tablet
-2. Termux-X11 Freezes Every 5 Seconds
-3. Termux Gets Killed Every So Often
+1. Termux Not Full Screen on Huawei Tablet  
+	Fix: Turn off App Multiplier on Huawei Setting for Termux
+2. Termux-X11 Freezes Every 5 Seconds  
+	Fix: Go to Termux App on Setting -> Power usage details -> Launch settings -> Turn off Manage automatically  
+3. Termux Gets Killed Every So Often  
 	Fix: Disable `MONITOR_PHANTOM_PROCS` using either ADB or Developer Mode on your Huawei device.
-```bash
+	```bash
 	# For Android 12L & Android 13+
 	./adb shell "settings put global settings_enable_monitor_phantom_procs false"
 	# For Android 12
