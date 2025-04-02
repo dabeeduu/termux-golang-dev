@@ -54,3 +54,9 @@ proot-distro login ubuntu -- /bin/bash -c "
   exit
 "
 
+# Installing postgresql
+apt update && apt install postgresql -y
+mkdir ./postgres && initdb ./postgres
+alias pgstart='pg_ctl -D ./postgres start' >> ~/.bashrc
+alias pgstop='pg_ctl -D ./postgres stop' >> ~/.bashrc
+
