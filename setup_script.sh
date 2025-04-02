@@ -60,3 +60,5 @@ mkdir ./postgres && initdb ./postgres
 alias pgstart='pg_ctl -D ./postgres start' >> ~/.bashrc
 alias pgstop='pg_ctl -D ./postgres stop' >> ~/.bashrc
 
+alias ubuntu='pd login --user $username ubuntu --shared-tmp' >> ~/.bashrc
+
