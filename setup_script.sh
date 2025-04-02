@@ -43,27 +43,11 @@ proot-distro login ubuntu -- /bin/bash -c "
   # Install sudo
   apt install sudo -y
 
-  # Automate adding the user with expect
-  expect <<EOF
-  spawn adduser $username
-  expect \"New password:\"
-  send \"$password\r\"
-  expect \"Retype new password:\"
-  send \"$password\r\"
-  expect \"Full Name []:\"
-  send \"\r\"
-  expect \"Room Number []:\"
-  send \"\r\"
-  expect \"Work Phone []:\"
-  send \"\r\"
-  expect \"Home Phone []:\"
-  send \"\r\"
-  expect \"Other []:\"
-  send \"\r\"
-  expect \"Is the information correct? [Y/n]\"
-  send \"Y\r\"
-  EOF
+  # Create user with disabled password first
+  adduser --disabled-password --gecos '' $username
 
+  # Set password using chpasswd
+  echo '$username:$password' | chpasswd
   # Add user to sudoers
   echo \"$username  ALL=(ALL:ALL) ALL\" >> /etc/sudoers
 
