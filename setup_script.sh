@@ -38,7 +38,7 @@ proot-distro login ubuntu -- /bin/bash -c "
   apt upgrade -y
 
   # Install sudo
-  apt install sudo go -y
+  apt install sudo golang -y
 
   # Create user with disabled password first
   adduser --disabled-password --gecos '' $username
