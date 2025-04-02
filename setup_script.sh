@@ -43,14 +43,29 @@ proot-distro login ubuntu bash -c "
   # Install sudo
   apt install sudo -y
 
-  # Add the user and set the password
-  adduser $username <<EOF
-  $password
-  $password
+  # Automate adding the user with expect
+  expect <<EOF
+  spawn adduser $username
+  expect \"New password:\"
+  send \"$password\r\"
+  expect \"Retype new password:\"
+  send \"$password\r\"
+  expect \"Full Name []:\"
+  send \"\r\"
+  expect \"Room Number []:\"
+  send \"\r\"
+  expect \"Work Phone []:\"
+  send \"\r\"
+  expect \"Home Phone []:\"
+  send \"\r\"
+  expect \"Other []:\"
+  send \"\r\"
+  expect \"Is the information correct? [Y/n]\"
+  send \"Y\r\"
   EOF
 
   # Add user to sudoers
-  echo \"$username  ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
+  echo \"$username  ALL=(ALL:ALL) ALL\" >> /etc/sudoers
 
   exit
 "
