@@ -38,7 +38,7 @@ proot-distro login ubuntu -- /bin/bash -c "
   apt upgrade -y
 
   # Install sudo
-  apt install sudo -y
+  apt install sudo go -y
 
   # Create user with disabled password first
   adduser --disabled-password --gecos '' $username
@@ -48,8 +48,9 @@ proot-distro login ubuntu -- /bin/bash -c "
   # Add user to sudoers
   echo \"$username  ALL=(ALL:ALL) ALL\" >> /etc/sudoers
 
+  # Installing code-server for developement in browser
+  curl -fsSL https://code-server.dev/install.sh | sh
+
   exit
 "
 
-# Download a login script from a remote URL
-#wget -O login_script.sh https://www.test.com
