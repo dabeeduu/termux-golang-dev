@@ -35,7 +35,7 @@ fi
 # proot-distro login ubuntu
 
 
-proot-distro login ubuntu bash -c "
+proot-distro login ubuntu -- /bin/bash -c "
   # Inside Ubuntu - update and upgrade
   apt update -y
   apt upgrade -y
